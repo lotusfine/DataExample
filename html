@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de Datos CSV</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <section class="intro-text">
+        <h2>Produktionstappe DIN 374 metrisk fingevind</h2>
+        <h3>Machine Taps metric fine thread</h3>
+        <p><strong>Materiale:</strong> HSSE</p>
+        <p><strong>Spor:</strong> lige</p>
+        <p><strong>Hals:</strong> tynd</p>
+        <p><strong>Ansnit:</strong> 2-3 gevind</p>
+        <p><strong>Tolerance:</strong> gH</p>
+        <p><strong>Gevind:</strong> ISO DIN 13</p>
+    </section>
+
+<table id="datosTabla">
+    <thead>
+        <tr>
+            <th>Diameter d1mm</th>
+            <th>Stigning Pitch P mm</th>
+            <th>Totallgd. Length I1mm</th>
+            <th>Gevindlgd. Length I2 mm</th>
+            <th>Halsdiam. Shankdiam. d2 mm</th>
+            <th>Firkant Square a mm</th>
+            <th>Antal skaer Flutes</th>
+            <th>Bor Drill b mm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Los datos del CSV se cargarán aquí -->
+    </tbody>
+</table>
+
+<script>
+    // El código JavaScript para cargar y parsear el CSV irá aquí
+    document.addEventListener('DOMContentLoaded', function() {
+    fetch('example1.csv')
+    .then(response => response.text())
+    .then(text => {
+        const rows = text.split('\n').slice(1); // Elimina la primera línea (encabezados del CSV)
+        const tableBody = document.getElementById('datosTabla').getElementsByTagName('tbody')[0];
+
+        rows.forEach(row => {
+            if (row.trim()) { // Verifica si la fila no está vacía
+                const cols = row.split(','); // Separa los valores por comas
+                const tr = document.createElement('tr'); // Crea una nueva fila
+
+                cols.forEach(col => {
+                    const td = document.createElement('td'); // Crea una nueva celda
+                    td.textContent = col; // Establece el texto de la celda
+                    tr.appendChild(td); // Añade la celda a la fila
+                });
+
+                tableBody.appendChild(tr); // Añade la fila al cuerpo de la tabla
+            }
+        });
+    })
+    .catch(error => console.error('Error al cargar y parsear el CSV:', error));
+});
+
+</script>
+
+</body>
+</html>
+
+

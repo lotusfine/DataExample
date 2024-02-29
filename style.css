@@ -1,0 +1,64 @@
+
+.intro-text {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #007bff; /* Un toque de color para destacar la sección */
+}
+
+.intro-text h2, .intro-text h3 {
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.intro-text p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+.intro-text strong {
+    color: #007bff; /* Color para los títulos de cada ítem para hacerlos destacar */
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 80%; /* O el ancho que prefieras */
+    max-width: 500px; /* Ajusta esto según el tamaño deseado */
+    margin: 20px auto; /* Esto centra la tabla y añade espacio arriba y abajo */
+    overflow-x: auto; /* Para hacer scroll si la tabla es más ancha que el contenedor */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    font-size: 0.9em;
+}
+
+tr:hover {
+    background-color: #eaeaea;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
